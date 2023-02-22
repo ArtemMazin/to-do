@@ -1,4 +1,5 @@
-const data = {
+const settingsValidation = {
+  formSelector: '.tasks__form',
   inputSelector: '.tasks__input',
   submitButtonSelector: '.tasks__button',
   inactiveButtonClass: 'tasks__button_disabled',
@@ -10,9 +11,18 @@ const tasksList = document.querySelector('.tasks__list'),
   submitButton = document.querySelector('.tasks__button');
 
 class Validation {
-  constructor({ inputSelector, inputErrorClass }) {
+  constructor({
+    formSelector,
+    inputSelector,
+    inputErrorClass,
+    submitButtonSelector,
+    inactiveButtonClass,
+  }) {
+    this._form = document.querySelector(formSelector);
     this._inputList = document.querySelectorAll(inputSelector);
     this._inputError = inputErrorClass;
+    this._button = document.querySelector(submitButtonSelector);
+    this._buttonDisabled = inactiveButtonClass;
   }
   _showError(input) {
     input.classList.add(this._inputError);
@@ -27,10 +37,18 @@ class Validation {
       this._hideError(input);
     }
   }
+  _toggleButton() {
+    this._button.classList.toggle(
+      this._buttonDisabled,
+      !this._form.checkValidity()
+    );
+  }
   _setValidation() {
+    this._toggleButton();
     this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
         this._toggleValidation(input);
+        this._toggleButton();
       });
     });
   }
@@ -39,7 +57,7 @@ class Validation {
   }
 }
 
-const formValidation = new Validation(data);
+const formValidation = new Validation(settingsValidation);
 formValidation.enableValidation();
 
 class Task {
