@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="todo.css" />
+    <title>to-do</title>
+  </head>
+  <body class="body">
+    <header>
+      <h1>Список задач</h1>
+    </header>
+    <main>
+      <section class="tasks">
+        <ul class="tasks__list">
+          <li class="task">
+            <h2 class="task__title">Задача 1</h2>
+            <p class="task__text">Описание задачи 1</p>
+          </li>
+          <li class="task">
+            <h2 class="task__title">Задача 2</h2>
+            <p class="task__text">Описание задачи 2</p>
+          </li>
+          <li class="task">
+            <h2 class="task__title">Задача 3</h2>
+            <p class="task__text">Описание задачи 3</p>
+          </li>
+          <li class="task">
+            <h2 class="task__title">Задача 4</h2>
+            <p class="task__text">Описание задачи 4</p>
+          </li>
+          <li class="task">
+            <h2 class="task__title">Задача 5</h2>
+            <p class="task__text">Описание задачи 5</p>
+          </li>
+        </ul>
+        <form class="tasks__form">
+          <input
+            type="text"
+            class="tasks__input tasks__input_type_title"
+            name="tasks_input_title"
+            placeholder="Введите название задачи" />
+          <input
+            type="text"
+            class="tasks__input tasks__input_type_text"
+            name="tasks_input_text"
+            placeholder="Введите описание задачи" />
+          <button
+            type="submit"
+            class="tasks__button">
+            Добавить задачу
+          </button>
+        </form>
+      </section>
+    </main>
+    <template id="task-template">
+      <li class="task">
+        <h2 class="task__title">Задача 5</h2>
+        <p class="task__text">Описание задачи 5</p>
+      </li>
+    </template>
+    <script
+      type="module"
+      src="script/todo.js"></script>
+  </body>
+</html>
