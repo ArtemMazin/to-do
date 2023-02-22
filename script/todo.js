@@ -5,9 +5,42 @@ const data = {
   inputErrorClass: 'tasks__input_invalid',
 };
 const tasksList = document.querySelector('.tasks__list'),
-inputTitle = document.querySelector('.tasks__input_type_title'),
-inputText = document.querySelector('.tasks__input_type_text'),
-submitButton = document.querySelector('.tasks__button')
+  inputTitle = document.querySelector('.tasks__input_type_title'),
+  inputText = document.querySelector('.tasks__input_type_text'),
+  submitButton = document.querySelector('.tasks__button');
+
+class Validation {
+  constructor({ inputSelector, inputErrorClass }) {
+    this._inputList = document.querySelectorAll(inputSelector);
+    this._inputError = inputErrorClass;
+  }
+  _showError(input) {
+    input.classList.add(this._inputError);
+  }
+  _hideError(input) {
+    input.classList.remove(this._inputError);
+  }
+  _toggleValidation(input) {
+    if (!input.validity.valid) {
+      this._showError(input);
+    } else {
+      this._hideError(input);
+    }
+  }
+  _setValidation() {
+    this._inputList.forEach((input) => {
+      input.addEventListener('input', () => {
+        this._toggleValidation(input);
+      });
+    });
+  }
+  enableValidation() {
+    this._setValidation();
+  }
+}
+
+const formValidation = new Validation(data);
+formValidation.enableValidation();
 
 class Task {
   constructor(card, templateSelector) {
@@ -33,7 +66,12 @@ function renderTask(card, templateSelector) {
 }
 function handleFormTask(e) {
   e.preventDefault();
-  tasksList.prepend(renderTask({title: inputTitle.value, text: inputText.value}, '#task-template'))
+  tasksList.prepend(
+    renderTask(
+      { title: inputTitle.value, text: inputText.value },
+      '#task-template'
+    )
+  );
 }
 
-submitButton.addEventListener('click', handleFormTask)
+submitButton.addEventListener('click', handleFormTask);

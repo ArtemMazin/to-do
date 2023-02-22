@@ -1,20 +1,13 @@
+@import url(/to-do/blocks/body/body.css);
 
-@import url(/blocks/body/body.css);
+@import url(/to-do/blocks/tasks/tasks.css);
+@import url(/to-do/blocks/tasks/__button/tasks__button.css);
+@import url(/to-do/blocks/tasks/__button/_disabled/tasks__button_disabled.css);
+@import url(/to-do/blocks/tasks/__form/tasks__form.css);
+@import url(/to-do/blocks/tasks/__input/tasks__input.css);
+@import url(/to-do/blocks/tasks/__input/_invalid/tasks__input_invalid.css);
+@import url(/to-do/blocks/tasks/__list/tasks__list.css);
 
-@import url(/blocks/tasks/tasks.css);
-@import url(/blocks/tasks/__button/tasks__button.css);
-@import url(/blocks/tasks/__button/_disabled/tasks__button_disabled.css);
-@import url(/blocks/tasks/__form/tasks__form.css);
-@import url(/blocks/tasks/__input/tasks__input.css);
-@import url(/blocks/tasks/__input/_invalid/tasks__input_invalid.css);
-@import url(/blocks/tasks/__list/tasks__list.css);
-
-@import url(/blocks/task/task.css);
-@import url(/blocks/task/__text/task__text.css);
-@import url(/blocks/task/__title/task__title.css);
-
-
-
-
-
-
+@import url(/to-do/blocks/task/task.css);
+@import url(/to-do/blocks/task/__text/task__text.css);
+@import url(/to-do/blocks/task/__title/task__title.css);

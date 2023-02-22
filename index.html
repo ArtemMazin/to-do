@@ -41,17 +41,21 @@
             <p class="task__text">Описание задачи 5</p>
           </li>
         </ul>
-        <form class="tasks__form">
+        <form
+          class="tasks__form"
+          novalidate>
           <input
             type="text"
             class="tasks__input tasks__input_type_title"
             name="tasks_input_title"
-            placeholder="Введите название задачи" />
+            placeholder="Введите название задачи"
+            minlength="3" />
           <input
             type="text"
             class="tasks__input tasks__input_type_text"
             name="tasks_input_text"
-            placeholder="Введите описание задачи" />
+            placeholder="Введите описание задачи"
+            minlength="3" />
           <button
             type="submit"
             class="tasks__button">
