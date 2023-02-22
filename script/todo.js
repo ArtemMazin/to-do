@@ -4,6 +4,7 @@ const settingsValidation = {
   submitButtonSelector: '.tasks__button',
   inactiveButtonClass: 'tasks__button_disabled',
   inputErrorClass: 'tasks__input_invalid',
+  spanErrorClass: 'tasks__error',
 };
 const tasksList = document.querySelector('.tasks__list'),
   inputTitle = document.querySelector('.tasks__input_type_title'),
@@ -17,18 +18,24 @@ class Validation {
     inputErrorClass,
     submitButtonSelector,
     inactiveButtonClass,
+    spanErrorClass,
   }) {
     this._form = document.querySelector(formSelector);
     this._inputList = document.querySelectorAll(inputSelector);
     this._inputError = inputErrorClass;
     this._button = document.querySelector(submitButtonSelector);
     this._buttonDisabled = inactiveButtonClass;
+    this._spanError = spanErrorClass;
   }
   _showError(input) {
+    this._spanError = document.querySelector(`#${input.name}-error`);
     input.classList.add(this._inputError);
+    this._spanError.textContent = input.validationMessage;
   }
   _hideError(input) {
+    this._spanError = document.querySelector(`#${input.name}-error`);
     input.classList.remove(this._inputError);
+    this._spanError.textContent = '';
   }
   _toggleValidation(input) {
     if (!input.validity.valid) {
