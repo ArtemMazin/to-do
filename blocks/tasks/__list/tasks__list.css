@@ -4,3 +4,8 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+@media (max-width: 1025px) {
+  .tasks__list {
+    justify-content: center;
+  }
+}

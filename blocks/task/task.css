@@ -1,6 +1,6 @@
 .task {
-  width: 200px;
-  height: 200px;
+  width: 230px;
+  height: 230px;
   padding: 10px;
   margin-bottom: 10px;
   overflow: hidden;
@@ -17,4 +17,22 @@
 
 .task:active {
   transform: scale(0.98);
+}
+@media (max-width: 1025px) {
+  .task {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 426px) {
+  .task {
+    width: 160px;
+    height: 160px;
+  }
+}
+@media (max-width: 376px) {
+  .task {
+    width: 210px;
+    height: 210px;
+  }
 }

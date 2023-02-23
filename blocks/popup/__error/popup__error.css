@@ -1,7 +1,7 @@
 .popup__error {
   display: block;
-  min-height: 33px;
+  min-height: 38px;
   height: 100%;
-  font-size: 12px;
+  font-size: 20px;
   line-height: 15px;
 }

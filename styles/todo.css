@@ -2,7 +2,9 @@
 @import url(../vendor/fonts/fonts.css);
 
 @import url(../blocks/body/body.css);
+@import url(../blocks/main/main.css);
 
+@import url(../blocks/tasks/tasks.css);
 @import url(../blocks/tasks/__list/tasks__list.css);
 
 @import url(../blocks/popup/popup.css);
