@@ -3,9 +3,9 @@ import { settingsValidation } from './settingList.js';
 import { Task } from './Task.js';
 
 const tasksList = document.querySelector('.tasks__list'),
-  inputTitle = document.querySelector('.tasks__input_type_title'),
-  inputText = document.querySelector('.tasks__input_type_text'),
-  submitButton = document.querySelector('.tasks__button');
+  inputTitle = document.querySelector('.popup__input_type_title'),
+  inputText = document.querySelector('.popup__input_type_text'),
+  submitButton = document.querySelector('.popup__button');
 
 const formValidation = new FormValidator(settingsValidation);
 formValidation.enableValidation();

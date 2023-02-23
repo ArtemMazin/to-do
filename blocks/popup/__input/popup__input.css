@@ -1,4 +1,4 @@
-.tasks__input {
+.popup__input {
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 5px;
@@ -7,14 +7,14 @@
   transition: border-color 0.2s ease-in-out;
 }
 
-.tasks__input::placeholder {
+.popup__input::placeholder {
   color: #aaa;
 }
 
-.tasks__input:hover {
+.popup__input:hover {
   transform: scale(1.02);
 }
 
-.tasks__input:active {
+.popup__input:active {
   transform: scale(0.98);
 }

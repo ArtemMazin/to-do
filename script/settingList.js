@@ -1,9 +1,9 @@
 const settingsValidation = {
-  formSelector: '.tasks__form',
-  inputSelector: '.tasks__input',
-  submitButtonSelector: '.tasks__button',
-  inactiveButtonClass: 'tasks__button_disabled',
-  inputErrorClass: 'tasks__input_invalid',
-  spanErrorClass: 'tasks__error',
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_invalid',
+  spanErrorClass: 'popup__error',
 };
 export { settingsValidation };

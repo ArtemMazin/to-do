@@ -1,4 +1,4 @@
-.tasks__button {
+.popup__button {
   background-color: #4caf50;
   border: none;
   color: white;
@@ -12,12 +12,12 @@
   cursor: pointer;
 }
 
-.tasks__button:hover {
+.popup__button:hover {
   background-color: #3e8e41;
   transform: translateY(-2px);
 }
 
-.tasks__button:active {
+.popup__button:active {
   background-color: #1e4620;
   transform: translateY(2px);
 }
