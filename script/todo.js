@@ -5,7 +5,14 @@ import { Task } from './Task.js';
 const tasksList = document.querySelector('.tasks__list'),
   inputTitle = document.querySelector('.popup__input_type_title'),
   inputText = document.querySelector('.popup__input_type_text'),
+  popup = document.querySelector('.popup-container'),
+  openPopupButton = document.querySelector('.task__button'),
   submitButton = document.querySelector('.popup__button');
+
+function openPopup() {
+  popup.classList.add('popup-container_active');
+}
+openPopupButton.addEventListener('click', openPopup);
 
 const formValidation = new FormValidator(settingsValidation);
 formValidation.enableValidation();

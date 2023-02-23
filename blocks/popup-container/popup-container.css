@@ -1,5 +1,5 @@
 .popup-container {
-  /* visibility: hidden; */
+  visibility: hidden;
   display: flex;
   position: absolute;
   left: 0;

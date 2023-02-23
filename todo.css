@@ -14,6 +14,7 @@
 @import url(/to-do/blocks/task/task.css);
 @import url(/to-do/blocks/task/__text/task__text.css);
 @import url(/to-do/blocks/task/__title/task__title.css);
+@import url(/to-do/blocks/task/__button/task__button.css);
 
 @import url(/to-do/blocks/popup-container/popup-container.css);
 @import url(/to-do/blocks/popup-container/_active/popup-container_active.css);
