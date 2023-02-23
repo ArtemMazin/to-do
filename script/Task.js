@@ -7,8 +7,8 @@ class Task {
       .querySelector(this._template)
       .content.querySelector('.task')
       .cloneNode(true);
-    this._taskTitle = document.querySelector('.task__title');
-    this._taskText = document.querySelector('.task__text');
+    this._taskTitle = this._taskElement.querySelector('.task__title');
+    this._taskText = this._taskElement.querySelector('.task__text');
   }
   createTask() {
     this._taskTitle.textContent = this._title;
