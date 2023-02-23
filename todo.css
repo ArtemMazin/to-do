@@ -9,7 +9,7 @@
 @import url(/to-do/blocks/popup/__form/popup__form.css);
 @import url(/to-do/blocks/popup/__input/popup__input.css);
 @import url(/to-do/blocks/popup/__input/_invalid/popup__input_invalid.css);
-@import url(/to-do/blocks/popup/__list/popup__list.css);
+@import url(/to-do/blocks/popup/__close-button/popup__close-button.css);
 
 @import url(/to-do/blocks/task/task.css);
 @import url(/to-do/blocks/task/__text/task__text.css);
