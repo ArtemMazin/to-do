@@ -11,18 +11,28 @@ const tasksList = document.querySelector('.tasks__list'),
   closePopupButton = document.querySelector('.popup__close-button'),
   submitButton = document.querySelector('.popup__button');
 
-let i = 0;
-for (; i < localStorage.length / 2; i++) {
-  tasksList.prepend(
-    renderTask(
-      {
-        title: localStorage.getItem('title' + `${i}`),
-        text: localStorage.getItem('text' + `${i}`),
-      },
-      '#task-template'
-    )
-  );
-}
+const localStorageData = {
+  count: 0,
+  render: function () {
+    for (; this.count < localStorage.length / 2; this.count++) {
+      tasksList.prepend(
+        renderTask(
+          {
+            title: localStorage.getItem('title' + `${this.count}`),
+            text: localStorage.getItem('text' + `${this.count}`),
+          },
+          '#task-template'
+        )
+      );
+    }
+  },
+  set: function () {
+    localStorage.setItem('title' + `${this.count}`, `${inputTitle.value}`);
+    localStorage.setItem('text' + `${this.count}`, `${inputText.value}`);
+  },
+  remove: function () {},
+};
+localStorageData.render();
 
 function openPopup() {
   popup.classList.add('popup-container_active');
@@ -66,8 +76,7 @@ function handleFormTask(e) {
       '#task-template'
     )
   );
-  localStorage.setItem('title' + `${i}`, `${inputTitle.value}`);
-  localStorage.setItem('text' + `${i}`, `${inputText.value}`);
+  localStorageData.set();
   e.target.reset();
   closePopup();
 }
