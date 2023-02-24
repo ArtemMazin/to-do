@@ -11,6 +11,19 @@ const tasksList = document.querySelector('.tasks__list'),
   closePopupButton = document.querySelector('.popup__close-button'),
   submitButton = document.querySelector('.popup__button');
 
+let i = 0;
+for (; i < localStorage.length / 2; i++) {
+  tasksList.prepend(
+    renderTask(
+      {
+        title: localStorage.getItem('title' + `${i}`),
+        text: localStorage.getItem('text' + `${i}`),
+      },
+      '#task-template'
+    )
+  );
+}
+
 function openPopup() {
   popup.classList.add('popup-container_active');
   document.addEventListener('mousedown', closePopupByOverlay);
@@ -44,6 +57,7 @@ function renderTask(card, templateSelector) {
   const newTask = new Task(card, templateSelector);
   return newTask.createTask();
 }
+
 function handleFormTask(e) {
   e.preventDefault();
   tasksList.prepend(
@@ -52,6 +66,8 @@ function handleFormTask(e) {
       '#task-template'
     )
   );
+  localStorage.setItem('title' + `${i}`, `${inputTitle.value}`);
+  localStorage.setItem('text' + `${i}`, `${inputText.value}`);
   e.target.reset();
   closePopup();
 }

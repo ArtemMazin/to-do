@@ -2,15 +2,13 @@
   width: 32px;
   height: 32px;
   position: absolute;
-  top: -40px;
-  right: -40px;
+  top: 25px;
+  right: 25px;
   padding: 0;
   box-sizing: border-box;
   cursor: pointer;
-  transition: 0.3s;
   color: #000;
-  /* background: url() no-repeat center;
-  background-size: cover; */
+  background-color: rgb(255, 255, 255);
   border: none;
 }
 .popup__close-button:hover {
