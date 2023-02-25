@@ -7,32 +7,10 @@ import {
   openPopupButton,
   closePopupButton,
 } from './const.js';
-// import { localStorageData } from './localStorageData.js';
+import { localStorageData } from './localStorageData.js';
 import { FormValidator } from './FormValidator.js';
 import { settingsValidation } from './settingList.js';
 import { Task } from './Task.js';
-
-const localStorageData = {
-  arr: JSON.parse(localStorage.getItem('tasks')),
-
-  render() {
-    if (this.arr == null) {
-      return;
-    }
-    JSON.parse(localStorage.getItem('tasks')).forEach((item) =>
-      tasksList.append(renderTask(item, '#task-template'))
-    );
-  },
-  set(tasksObj) {
-    if (this.arr == null) {
-      this.arr = [];
-    }
-    this.arr.unshift(tasksObj);
-  },
-  setStorage() {
-    localStorage.setItem('tasks', JSON.stringify(this.arr));
-  },
-};
 
 localStorageData.render();
 
@@ -74,10 +52,12 @@ function handleFormTask(e) {
   const tasksObj = { title: inputTitle.value, text: inputText.value };
   e.preventDefault();
   tasksList.prepend(renderTask(tasksObj, '#task-template'));
-  localStorageData.set(tasksObj);
+  localStorageData.unshiftObj(tasksObj);
   localStorageData.setStorage();
   e.target.reset();
   closePopup();
 }
 
 popupForm.addEventListener('submit', handleFormTask);
+
+export { renderTask };
