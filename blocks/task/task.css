@@ -3,6 +3,7 @@
   height: 230px;
   padding: 10px;
   margin-bottom: 10px;
+  position: relative;
   overflow: hidden;
   list-style: none;
   background-color: #f8f8f8;

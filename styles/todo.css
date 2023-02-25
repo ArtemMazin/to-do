@@ -20,6 +20,7 @@
 @import url(../blocks/task/__text/task__text.css);
 @import url(../blocks/task/__title/task__title.css);
 @import url(../blocks/task/__button/task__button.css);
+@import url(../blocks/task/__button-remove/task__button-remove.css);
 
 @import url(../blocks/popup-container/popup-container.css);
 @import url(../blocks/popup-container/_active/popup-container_active.css);

@@ -1,0 +1,14 @@
+.task__button-remove {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 0;
+  font-size: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #000;
+  background-color: #f8f8f8;
+  border: none;
+}
