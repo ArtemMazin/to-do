@@ -44,7 +44,7 @@ const formValidation = new FormValidator(settingsValidation);
 formValidation.enableValidation();
 
 function renderTask(card, templateSelector) {
-  const newTask = new Task(card, templateSelector);
+  const newTask = new Task(card, templateSelector, localStorageData);
   return newTask.createTask();
 }
 

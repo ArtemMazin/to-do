@@ -1,5 +1,5 @@
 class Task {
-  constructor(card, templateSelector) {
+  constructor(card, templateSelector, localStorageData) {
     this._title = card.title;
     this._text = card.text;
     this._template = templateSelector;
@@ -12,20 +12,16 @@ class Task {
     this._removeButton = this._taskElement.querySelector(
       '.task__button-remove'
     );
+    this._localStorageData = localStorageData;
   }
-  _removeTask(e) {
-    const array = JSON.parse(localStorage.getItem('tasks'));
-    document.querySelectorAll('.task__button-remove').forEach((item, i) => {
-      if (e.target == item) {
-        array.splice(i, 1);
-        localStorage.setItem('tasks', JSON.stringify(array));
-      }
-    });
-
+  _removeTask() {
     this._taskElement.remove();
   }
   _setEventListeners() {
-    this._removeButton.addEventListener('click', (e) => this._removeTask(e));
+    this._removeButton.addEventListener('click', (e) => {
+      this._localStorageData.removeObj(e);
+      this._removeTask(e);
+    });
   }
   createTask() {
     this._taskTitle.textContent = this._title;
