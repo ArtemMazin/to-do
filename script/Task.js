@@ -13,11 +13,19 @@ class Task {
       '.task__button-remove'
     );
   }
-  _removeTask() {
+  _removeTask(e) {
+    const array = JSON.parse(localStorage.getItem('tasks'));
+    document.querySelectorAll('.task__button-remove').forEach((item, i) => {
+      if (e.target == item) {
+        array.splice(i, 1);
+        localStorage.setItem('tasks', JSON.stringify(array));
+      }
+    });
+
     this._taskElement.remove();
   }
   _setEventListeners() {
-    this._removeButton.addEventListener('click', () => this._removeTask());
+    this._removeButton.addEventListener('click', (e) => this._removeTask(e));
   }
   createTask() {
     this._taskTitle.textContent = this._title;

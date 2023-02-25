@@ -1,37 +1,39 @@
+import {
+  tasksList,
+  inputTitle,
+  inputText,
+  popup,
+  popupForm,
+  openPopupButton,
+  closePopupButton,
+} from './const.js';
+// import { localStorageData } from './localStorageData.js';
 import { FormValidator } from './FormValidator.js';
 import { settingsValidation } from './settingList.js';
 import { Task } from './Task.js';
 
-const tasksList = document.querySelector('.tasks__list'),
-  inputTitle = document.querySelector('.popup__input_type_title'),
-  inputText = document.querySelector('.popup__input_type_text'),
-  popup = document.querySelector('.popup-container'),
-  popupForm = document.querySelector('.popup__form'),
-  openPopupButton = document.querySelector('.task__button'),
-  closePopupButton = document.querySelector('.popup__close-button'),
-  submitButton = document.querySelector('.popup__button');
-
 const localStorageData = {
-  count: 0,
-  render: function () {
-    for (; this.count < localStorage.length / 2; this.count++) {
-      tasksList.prepend(
-        renderTask(
-          {
-            title: localStorage.getItem('title' + `${this.count}`),
-            text: localStorage.getItem('text' + `${this.count}`),
-          },
-          '#task-template'
-        )
-      );
+  arr: JSON.parse(localStorage.getItem('tasks')),
+
+  render() {
+    if (this.arr == null) {
+      return;
     }
+    JSON.parse(localStorage.getItem('tasks')).forEach((item) =>
+      tasksList.append(renderTask(item, '#task-template'))
+    );
   },
-  set: function () {
-    localStorage.setItem('title' + `${this.count}`, `${inputTitle.value}`);
-    localStorage.setItem('text' + `${this.count}`, `${inputText.value}`);
+  set(tasksObj) {
+    if (this.arr == null) {
+      this.arr = [];
+    }
+    this.arr.unshift(tasksObj);
   },
-  remove: function () {},
+  setStorage() {
+    localStorage.setItem('tasks', JSON.stringify(this.arr));
+  },
 };
+
 localStorageData.render();
 
 function openPopup() {
@@ -69,14 +71,11 @@ function renderTask(card, templateSelector) {
 }
 
 function handleFormTask(e) {
+  const tasksObj = { title: inputTitle.value, text: inputText.value };
   e.preventDefault();
-  tasksList.prepend(
-    renderTask(
-      { title: inputTitle.value, text: inputText.value },
-      '#task-template'
-    )
-  );
-  localStorageData.set();
+  tasksList.prepend(renderTask(tasksObj, '#task-template'));
+  localStorageData.set(tasksObj);
+  localStorageData.setStorage();
   e.target.reset();
   closePopup();
 }
