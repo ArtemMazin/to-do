@@ -12,8 +12,6 @@ import { FormValidator } from './FormValidator.js';
 import { settingsValidation } from './settingList.js';
 import { Task } from './Task.js';
 
-localStorageData.render();
-
 function openPopup() {
   popup.classList.add('popup-container_active');
   document.addEventListener('mousedown', closePopupByOverlay);
@@ -39,12 +37,14 @@ function closePopupByEsc(e) {
     closePopup();
   }
 }
+const newLocalStorage = new localStorageData(tasksList, renderTask);
+newLocalStorage.render();
 
 const formValidation = new FormValidator(settingsValidation);
 formValidation.enableValidation();
 
 function renderTask(card, templateSelector) {
-  const newTask = new Task(card, templateSelector, localStorageData);
+  const newTask = new Task(card, templateSelector, newLocalStorage);
   return newTask.createTask();
 }
 
@@ -52,8 +52,8 @@ function handleFormTask(e) {
   const tasksObj = { title: inputTitle.value, text: inputText.value };
   e.preventDefault();
   tasksList.prepend(renderTask(tasksObj, '#task-template'));
-  localStorageData.unshiftObj(tasksObj);
-  localStorageData.setStorage();
+  newLocalStorage.unshiftObj(tasksObj);
+  newLocalStorage.setStorage();
   e.target.reset();
   closePopup();
 }

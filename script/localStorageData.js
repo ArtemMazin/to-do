@@ -1,23 +1,24 @@
-import { renderTask } from './todo.js';
-import { tasksList } from './const.js';
-
-const localStorageData = {
-  arr: JSON.parse(localStorage.getItem('tasks')),
+class localStorageData {
+  constructor(tasksList, renderTask) {
+    this._arr = JSON.parse(localStorage.getItem('tasks'));
+    this._tasksList = tasksList;
+    this._renderTask = renderTask;
+  }
 
   render() {
-    if (this.arr == null) {
+    if (this._arr == null) {
       return;
     }
     JSON.parse(localStorage.getItem('tasks')).forEach((item) =>
-      tasksList.append(renderTask(item, '#task-template'))
+      this._tasksList.append(this._renderTask(item, '#task-template'))
     );
-  },
+  }
   unshiftObj(tasksObj) {
-    if (this.arr == null) {
-      this.arr = [];
+    if (this._arr == null) {
+      this._arr = [];
     }
-    this.arr.unshift(tasksObj);
-  },
+    this._arr.unshift(tasksObj);
+  }
   removeObj(e) {
     const array = JSON.parse(localStorage.getItem('tasks'));
     document.querySelectorAll('.task__button-remove').forEach((item, i) => {
@@ -26,9 +27,9 @@ const localStorageData = {
         localStorage.setItem('tasks', JSON.stringify(array));
       }
     });
-  },
+  }
   setStorage() {
-    localStorage.setItem('tasks', JSON.stringify(this.arr));
-  },
-};
+    localStorage.setItem('tasks', JSON.stringify(this._arr));
+  }
+}
 export { localStorageData };

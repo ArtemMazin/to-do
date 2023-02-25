@@ -1,5 +1,5 @@
 class Task {
-  constructor(card, templateSelector, localStorageData) {
+  constructor(card, templateSelector, newLocalStorage) {
     this._title = card.title;
     this._text = card.text;
     this._template = templateSelector;
@@ -12,7 +12,7 @@ class Task {
     this._removeButton = this._taskElement.querySelector(
       '.task__button-remove'
     );
-    this._localStorageData = localStorageData;
+    this._localStorageData = newLocalStorage;
   }
   _removeTask() {
     this._taskElement.remove();
